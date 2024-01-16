@@ -1,0 +1,15 @@
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\bin\Debug\net6.0\Tetragonchiki.exe
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\bin\Debug\net6.0\Tetragonchiki.deps.json
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\bin\Debug\net6.0\Tetragonchiki.runtimeconfig.json
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\bin\Debug\net6.0\Tetragonchiki.dll
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\bin\Debug\net6.0\Tetragonchiki.pdb
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\obj\Debug\net6.0\Tetragonchiki.csproj.AssemblyReference.cache
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\obj\Debug\net6.0\Tetragonchiki.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\obj\Debug\net6.0\Tetragonchiki.AssemblyInfoInputs.cache
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\obj\Debug\net6.0\Tetragonchiki.AssemblyInfo.cs
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\obj\Debug\net6.0\Tetragonchiki.csproj.CoreCompileInputs.cache
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\obj\Debug\net6.0\Tetragonchiki.dll
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\obj\Debug\net6.0\refint\Tetragonchiki.dll
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\obj\Debug\net6.0\Tetragonchiki.pdb
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\obj\Debug\net6.0\Tetragonchiki.genruntimeconfig.cache
+C:\Users\krasi\source\repos\Tetragonchiki\Tetragonchiki\obj\Debug\net6.0\ref\Tetragonchiki.dll
