@@ -1,80 +1,112 @@
 using UnityEngine;
 
-abstract class Hotdog
+public abstract class Hotdog
 {
-    public Hotdog(string n)
+    public HotdogSettings settings;
+
+    public Hotdog(HotdogSettings settings)
     {
-        Name = n;
+        this.settings = settings;
     }
 
-    public string Name { get; protected set; }
+    public string Name { get { return settings.HotdogName; } }
 
     public abstract int GetCost();
+    public abstract int GetWeight();
 }
 
-class ClassicHotDog : Hotdog
+public class ClassicHotDog : Hotdog
 {
-    public ClassicHotDog() : base("Хот-Дог Классический")
+    public ClassicHotDog(HotdogSettings settings) : base(settings)
     { }
 
     public override int GetCost()
     {
-        return 210;
+        return settings.BaseCost;
+    }
+
+    public override int GetWeight()
+    {
+        return 150;
     }
 }
 
-class CaesarHotDog : Hotdog
+public class CaesarHotDog : Hotdog
 {
-    public CaesarHotDog() : base("Хот-Дог Цезарь")
+    public CaesarHotDog(HotdogSettings settings) : base(settings)
     { }
 
     public override int GetCost()
     {
-        return 290;
+        return settings.BaseCost;
+    }
+
+    public override int GetWeight()
+    {
+        return 165;
     }
 }
 
-class MeatHotDog : Hotdog
+public class MeatHotDog : Hotdog
 {
-    public MeatHotDog() : base("Хот-Дог Мясной")
+    public MeatHotDog(HotdogSettings settings) : base(settings)
     { }
 
     public override int GetCost()
     {
-        return 330;
+        return settings.BaseCost;
+    }
+
+    public override int GetWeight()
+    {
+        return 188;
     }
 }
 
-abstract class HotdogDecorator : Hotdog
+public abstract class HotdogDecorator : Hotdog
 {
     protected Hotdog hotdog;
 
-    public HotdogDecorator(string n, Hotdog hotdog) : base(n)
+    public HotdogDecorator(Hotdog hotdog, HotdogSettings settings) : base(settings)
     {
         this.hotdog = hotdog;
     }
-}
-
-class PickleHotdog : HotdogDecorator
-{
-    public PickleHotdog(Hotdog hotdog)
-        : base(hotdog.Name + ", с маринованными огурцами", hotdog)
-    { }
-
-    public override int GetCost()
+    public string GetClassName()
     {
-        return hotdog.GetCost() + 50;
+        return hotdog.Name;
     }
 }
 
-class OnionHotdog : HotdogDecorator
+public class PickleHotdog : HotdogDecorator
 {
-    public OnionHotdog(Hotdog hotdog)
-        : base(hotdog.Name + ", со сладким луком", hotdog)
-    { }
+    public PickleHotdog(Hotdog hotdog, HotdogSettings settings)
+        : base(hotdog, settings)
+    {}
 
     public override int GetCost()
     {
-        return hotdog.GetCost() + 30;
+        return hotdog.GetCost() + settings.BaseCost;
+    }
+
+    public override int GetWeight()
+    {
+        return hotdog.GetWeight() + settings.CucumberWeight;
+    }
+}
+
+public class OnionHotdog : HotdogDecorator
+{
+    public OnionHotdog(Hotdog hotdog, HotdogSettings settings)
+        : base(hotdog, settings)
+    {}
+
+    public override int GetCost()
+    {
+        return hotdog.GetCost() + settings.BaseCost;
+    }
+
+    public override int GetWeight()
+    {
+        return hotdog.GetWeight() + settings.OnionWeight;
     }
 }
