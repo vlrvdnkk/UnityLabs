@@ -1,6 +1,5 @@
-using JetBrains.Annotations;
 using UnityEngine;
-using Zenject;
+using VContainer;
 
 namespace _Source
 {
@@ -17,8 +16,6 @@ namespace _Source
         private bool _isAttracting;
         private Vector3 _spawnPosition;
         private Quaternion _spawnRotation;
-        
-        public class Factory : PlaceholderFactory<Bonus> { }
 
         [Inject]
         private void Construct(CometController controller, GameManager gameManager)
@@ -36,7 +33,7 @@ namespace _Source
             transform.rotation = _spawnRotation;
             transform.SetParent(parent);
         }
-        
+
         private void Start()
         {
             _cometTransform = _cometController.gameObject.transform;

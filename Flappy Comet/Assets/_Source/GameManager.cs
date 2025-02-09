@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Zenject;
+using VContainer;
+using Random = UnityEngine.Random;
 
 namespace _Source
 {
@@ -22,20 +24,25 @@ namespace _Source
         [Min(0)] [SerializeField] private float spawnBufferWidth;
         [SerializeField] private Transform obstacleParent;
         [SerializeField] private Transform bonusParent;
-
-        private Bonus.Factory _bonusFactory;
-        private Obstacle.Factory _obstacleFactory;
         
+        private readonly IObjectResolver _resolver;
+        private Func<Obstacle> _obstacleFactory;
+        private Func<Bonus> _bonusFactory;
         private int _score;
 
         [Inject]
-        private void Construct(Bonus.Factory bonusFactory, Obstacle.Factory obstacleFactory)
+        public void Construct(Func<Obstacle> obstacleFactory, Func<Bonus> bonusFactory)
+        {
+            _obstacleFactory = obstacleFactory;
+            _bonusFactory = bonusFactory;
+            Instance = this;
+        }
+
+        private void Awake()
         {
             Instance = this;
-            _bonusFactory = bonusFactory;
-            _obstacleFactory  = obstacleFactory;
         }
-    
+
         private void Start()
         {
             ScreenWidth = Camera.main.orthographicSize * Camera.main.aspect;
@@ -58,7 +65,7 @@ namespace _Source
             {
                 float spawnX = ScreenWidth + spawnBufferWidth;
                 float spawnY = Random.Range(obstacleSpawnMinY, obstacleSpawnMaxY);
-                Obstacle obstacle = _obstacleFactory.Create();
+                Obstacle obstacle = _obstacleFactory.Invoke();
                 obstacle.Initialize(new Vector3(spawnX, spawnY, 0), Quaternion.identity, obstacleParent);
                 float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
                 yield return new WaitForSeconds(randomInterval);
@@ -71,7 +78,7 @@ namespace _Source
             {
                 float spawnX = ScreenWidth + spawnBufferWidth;;
                 float spawnY = Random.Range(bonusSpawnMinY, bonusSpawnMaxY);
-                Bonus bonus = _bonusFactory.Create();
+                Bonus bonus = _bonusFactory.Invoke();
                 bonus.Initialize(new Vector3(spawnX, spawnY, 0), Quaternion.identity, bonusParent);
                 float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
                 yield return new WaitForSeconds(randomInterval);

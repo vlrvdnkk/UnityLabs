@@ -1,5 +1,6 @@
+using System;
 using UnityEngine;
-using Zenject;
+using VContainer;
 
 namespace _Source
 {
@@ -13,8 +14,6 @@ namespace _Source
         private GameManager _gameManager;
         private Vector3 _spawnPosition;
         private Quaternion _spawnRotation;
-        
-        public class Factory : PlaceholderFactory<Obstacle> { }
         
         [Inject]
         private void Construct(GameManager gameManager)
