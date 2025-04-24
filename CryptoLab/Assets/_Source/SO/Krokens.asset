@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d448f69836f0c5040ab52f051215f93e, type: 3}
+  m_Name: Krokens
+  m_EditorClassIdentifier: 
+  currencyName: "\u041A\u0440\u043E\u043A\u0435\u043D\u0441\u044B"
+  icon: {fileID: 6899417734756182043, guid: a8a877fe57d64714ea7cbc7cffe8a11d, type: 3}
+  minPrice: 2
+  maxPrice: 55
+  priceChangeFactor: 0.8
+  priceUpdateInterval: 1
